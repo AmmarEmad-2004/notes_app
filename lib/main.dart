@@ -1,3 +1,5 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -12,7 +14,12 @@ void main() async {
 
   await Hive.openBox(kNotesBox);
   Hive.registerAdapter(NoteModelAdapter());
-  runApp(const NotesApp());
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => NotesApp(),
+    ),
+  );
 }
 
 class NotesApp extends StatelessWidget {
@@ -27,6 +34,8 @@ class NotesApp extends StatelessWidget {
         )
       ],
       child: MaterialApp(
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
         routes: {
           'NotesView': (context) => const NotesView(),
           'EditNoteView': (context) => const EditNoteView(),
