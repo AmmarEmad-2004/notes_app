@@ -17,7 +17,7 @@ void main() async {
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
-      builder: (context) => NotesApp(),
+      builder: (context) => const NotesApp(),
     ),
   );
 }
