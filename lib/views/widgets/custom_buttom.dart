@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/constants.dart';
 
+// ignore: must_be_immutable
 class CustomButtom extends StatelessWidget {
   CustomButtom(
       {super.key, required this.text, this.onTap, this.isloading = false});
