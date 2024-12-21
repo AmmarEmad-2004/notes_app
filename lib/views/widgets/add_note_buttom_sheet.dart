@@ -33,7 +33,7 @@ class _AddNoteButtomSheetState extends State<AddNoteButtomSheet> {
                 right: 16,
                 bottom: MediaQuery.of(context).padding.bottom,
               ),
-              child: SingleChildScrollView(
+              child: const SingleChildScrollView(
                 child: AddNoteForm(),
               ),
             ),
