@@ -10,14 +10,25 @@ class ColorsListVeiw extends StatefulWidget {
 
 class _ColorsListVeiwState extends State<ColorsListVeiw> {
   int currentColorIndex = 0;
-
+  final List colors = [
+    Colors.red,
+    Colors.green,
+    Colors.blue,
+    Colors.yellow,
+    Colors.purple,
+    Colors.orange,
+    Colors.pink,
+    Colors.teal,
+    Colors.brown,
+    Colors.grey,
+  ];
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 2 * 38,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: 10,
+          itemCount: colors.length,
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -27,6 +38,7 @@ class _ColorsListVeiwState extends State<ColorsListVeiw> {
                   setState(() {});
                 },
                 child: ColorItem(
+                  color: colors[index],
                   isActive: currentColorIndex == index,
                 ),
               ),
